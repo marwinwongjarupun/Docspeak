@@ -167,14 +167,15 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'zh_Hans': '',
     },
     'pqumyi2e': {
-      'en': 'Hello World',
+      'en':
+          'what made you visit the office today? \n\nQu\'est-ce qui vous a amené à consulter aujourd\'hui ?',
       'ar': '',
       'es': '',
       'th': '',
       'zh_Hans': '',
     },
     'pt4zp0fj': {
-      'en': 'Hello World',
+      'en': 'Je ai mal au coeur.\n\nI feel nauseous.',
       'ar': '',
       'es': '',
       'th': '',
@@ -194,7 +195,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': '',
       'zh_Hans': '',
     },
-    'k3ayzbz4': {
+    't52asf81': {
       'en': 'Download TXT file',
       'ar': '',
       'es': '',
