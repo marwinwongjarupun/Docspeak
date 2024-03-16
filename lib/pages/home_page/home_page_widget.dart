@@ -40,26 +40,33 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
-          ),
-          actions: const [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
-        body: const SafeArea(
+        body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Stack(
+            children: [
+              MouseRegion(
+                opaque: false,
+                cursor: MouseCursor.defer ?? MouseCursor.defer,
+                onEnter: ((event) async {
+                  setState(() => _model.mouseRegionHovered = true);
+                }),
+                onExit: ((event) async {
+                  setState(() => _model.mouseRegionHovered = false);
+                }),
+                child: Align(
+                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.asset(
+                      'assets/images/Docspeak-logo.png',
+                      width: 277.0,
+                      height: 124.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
