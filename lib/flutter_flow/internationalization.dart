@@ -111,7 +111,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
     'k3ayzbz4': {
-      'en': 'Download txt file',
+      'en': 'Download TXT file',
       'ar': '',
       'es': '',
       'th': '',
@@ -133,13 +133,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'pt4zp0fj': {
       'en': 'Hello World',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
-    '9z06vs8a': {
-      'en': 'Type something...',
       'ar': '',
       'es': '',
       'th': '',
