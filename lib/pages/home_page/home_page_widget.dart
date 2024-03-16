@@ -203,41 +203,58 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   ],
                                 ),
                               ),
-                              FFButtonWidget(
-                                onPressed: () {
-                                  print('Button pressed ...');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'k3ayzbz4' /* Download TXT file */,
-                                ),
-                                options: FFButtonOptions(
-                                  height: 35.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      20.0, 0.0, 20.0, 0.0),
-                                  iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color:
-                                      FlutterFlowTheme.of(context).buttonColor,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
-                                        fontFamily: 'Readex Pro',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontSize: 14.0,
-                                      ),
-                                  elevation: 2.0,
-                                  borderSide: const BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                              FlutterFlowDropDown<String>(
+                                controller: _model.dropDownValueController ??=
+                                    FormFieldController<String>(null),
+                                options: [
+                                  FFLocalizations.of(context).getText(
+                                    'ae5t32es' /* Spanish */,
                                   ),
-                                  borderRadius: BorderRadius.circular(50.0),
-                                  hoverColor: FlutterFlowTheme.of(context)
-                                      .buttonColorHover,
-                                  hoverTextColor:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  hoverElevation: 5.0,
+                                  FFLocalizations.of(context).getText(
+                                    'vwytv2ji' /* Mandarin */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'jimjfoh8' /* French */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'qwkvw44r' /* Arabic */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'fwt3bcth' /* Thai */,
+                                  )
+                                ],
+                                onChanged: (val) =>
+                                    setState(() => _model.dropDownValue = val),
+                                width: 140.0,
+                                height: 40.0,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
+                                      fontFamily: 'Readex Pro',
+                                      fontWeight: FontWeight.w300,
+                                    ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  'z8tpfzge' /* Select Language */,
                                 ),
+                                icon: Icon(
+                                  Icons.keyboard_arrow_down_rounded,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).alternate,
+                                borderWidth: 2.0,
+                                borderRadius: 8.0,
+                                margin: const EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 0.0, 0.0, 0.0),
+                                hidesUnderline: true,
+                                isOverButton: false,
+                                isSearchable: false,
+                                isMultiSelect: false,
                               ),
                             ],
                           ),
@@ -391,43 +408,6 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         ),
                                                                       ),
                                                                     ),
-                                                                    Padding(
-                                                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                          0.0,
-                                                                          6.0,
-                                                                          0.0,
-                                                                          0.0),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize.max,
-                                                                        children: [
-                                                                          Padding(
-                                                                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                                                                0.0,
-                                                                                0.0,
-                                                                                4.0,
-                                                                                0.0),
-                                                                            child:
-                                                                                Icon(
-                                                                              Icons.content_copy,
-                                                                              color: FlutterFlowTheme.of(context).primaryText,
-                                                                              size: 10.0,
-                                                                            ),
-                                                                          ),
-                                                                          Text(
-                                                                            FFLocalizations.of(context).getText(
-                                                                              '7iwssp4h' /* Copy response */,
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: 'Readex Pro',
-                                                                                  color: FlutterFlowTheme.of(context).primaryText,
-                                                                                  fontSize: 10.0,
-                                                                                ),
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
                                                                   ],
                                                                 ),
                                                               ],
@@ -541,16 +521,34 @@ class _HomePageWidgetState extends State<HomePageWidget>
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                if (_model.isDoctorRecording)
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      if (_model.isDoctorRecording)
+                                        FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 100.0,
+                                          buttonSize: 50.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .doctorButtonColor,
+                                          icon: Icon(
+                                            Icons.stop_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                            size: 25.0,
+                                          ),
+                                          showLoadingIndicator: true,
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
+                                          },
+                                        ),
+                                      if (!_model.isDoctorRecording)
                                         FlutterFlowIconButton(
                                           borderColor: Colors.transparent,
                                           borderRadius: 100.0,
@@ -569,14 +567,35 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                             print('IconButton pressed ...');
                                           },
                                         ),
-                                        if (_model.isDoctorRecording)
+                                      Text(
+                                        FFLocalizations.of(context).getText(
+                                          '7w9r7pls' /* Doctor */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium,
+                                      ),
+                                    ],
+                                  ).animateOnPageLoad(animationsMap[
+                                      'columnOnPageLoadAnimation1']!),
+                                ),
+                                if (!_model.isPatientRecording)
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        if (!_model.isPatientRecording)
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
                                             borderRadius: 100.0,
                                             buttonSize: 50.0,
-                                            fillColor: const Color(0xFF131313),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .patientButtonColor,
                                             icon: Icon(
-                                              Icons.stop_rounded,
+                                              Icons.mic_rounded,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .info,
@@ -587,49 +606,14 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               print('IconButton pressed ...');
                                             },
                                           ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            '7w9r7pls' /* Doctor */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ],
-                                    ).animateOnPageLoad(animationsMap[
-                                        'columnOnPageLoadAnimation1']!),
-                                  ),
-                                if (_model.isDoctorRecording)
-                                  Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        FlutterFlowIconButton(
-                                          borderColor: Colors.transparent,
-                                          borderRadius: 100.0,
-                                          buttonSize: 50.0,
-                                          fillColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .patientButtonColor,
-                                          icon: Icon(
-                                            Icons.mic_rounded,
-                                            color: FlutterFlowTheme.of(context)
-                                                .info,
-                                            size: 25.0,
-                                          ),
-                                          showLoadingIndicator: true,
-                                          onPressed: () {
-                                            print('IconButton pressed ...');
-                                          },
-                                        ),
                                         if (_model.isPatientRecording)
                                           FlutterFlowIconButton(
                                             borderColor: Colors.transparent,
                                             borderRadius: 100.0,
                                             buttonSize: 50.0,
-                                            fillColor: const Color(0xFF131313),
+                                            fillColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .patientButtonColor,
                                             icon: Icon(
                                               Icons.stop_rounded,
                                               color:
@@ -657,65 +641,50 @@ class _HomePageWidgetState extends State<HomePageWidget>
                             ),
                           ),
                         ),
+                        Align(
+                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          child: FFButtonWidget(
+                            onPressed: () {
+                              print('Button pressed ...');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'k3ayzbz4' /* Download TXT file */,
+                            ),
+                            options: FFButtonOptions(
+                              height: 35.0,
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  20.0, 0.0, 20.0, 0.0),
+                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).buttonColor,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Readex Pro',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontSize: 14.0,
+                                  ),
+                              elevation: 2.0,
+                              borderSide: const BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(50.0),
+                              hoverColor:
+                                  FlutterFlowTheme.of(context).buttonColorHover,
+                              hoverTextColor:
+                                  FlutterFlowTheme.of(context).primaryText,
+                              hoverElevation: 5.0,
+                            ),
+                          ),
+                        ),
                         Container(
                           width: 100.0,
-                          height: 110.0,
+                          height: 55.0,
                           decoration: const BoxDecoration(),
                         ),
                       ],
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
-                  child: Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
-                    child: FlutterFlowDropDown<String>(
-                      controller: _model.dropDownValueController ??=
-                          FormFieldController<String>(null),
-                      options: [
-                        FFLocalizations.of(context).getText(
-                          'ae5t32es' /* Spanish */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'vwytv2ji' /* Mandarin */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'jimjfoh8' /* French */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'qwkvw44r' /* Arabic */,
-                        ),
-                        FFLocalizations.of(context).getText(
-                          'fwt3bcth' /* Thai */,
-                        )
-                      ],
-                      onChanged: (val) =>
-                          setState(() => _model.dropDownValue = val),
-                      width: 256.0,
-                      height: 56.0,
-                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                      hintText: FFLocalizations.of(context).getText(
-                        'z8tpfzge' /* Select Language */,
-                      ),
-                      icon: Icon(
-                        Icons.keyboard_arrow_down_rounded,
-                        color: FlutterFlowTheme.of(context).secondaryText,
-                        size: 24.0,
-                      ),
-                      fillColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      elevation: 2.0,
-                      borderColor: FlutterFlowTheme.of(context).alternate,
-                      borderWidth: 2.0,
-                      borderRadius: 8.0,
-                      margin:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                      hidesUnderline: true,
-                      isOverButton: true,
-                      isSearchable: false,
-                      isMultiSelect: false,
                     ),
                   ),
                 ),

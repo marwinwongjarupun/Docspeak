@@ -110,48 +110,6 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
-    'k3ayzbz4': {
-      'en': 'Download TXT file',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
-    'pqumyi2e': {
-      'en': 'Hello World',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
-    '7iwssp4h': {
-      'en': 'Copy response',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
-    'pt4zp0fj': {
-      'en': 'Hello World',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
-    '7w9r7pls': {
-      'en': 'Doctor',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
-    'm41ranbt': {
-      'en': 'Patient',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
     '48w6z87k': {
       'en': '',
       'ar': '',
@@ -203,6 +161,41 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'tosutiwk': {
       'en': 'Search for an item...',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'pqumyi2e': {
+      'en': 'Hello World',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'pt4zp0fj': {
+      'en': 'Hello World',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    '7w9r7pls': {
+      'en': 'Doctor',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'm41ranbt': {
+      'en': 'Patient',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'k3ayzbz4': {
+      'en': 'Download TXT file',
       'ar': '',
       'es': '',
       'th': '',
