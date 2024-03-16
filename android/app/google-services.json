@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "825915232006",
+    "project_id": "docspeak-k9hifo",
+    "storage_bucket": "docspeak-k9hifo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825915232006:android:039573762161f2dfb69887",
+        "android_client_info": {
+          "package_name": "com.mycompany.docspeak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW5eOVhsRrjGbE382Ya86jKi2gcbhrlHE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
