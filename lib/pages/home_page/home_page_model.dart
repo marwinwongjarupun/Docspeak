@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'home_page_widget.dart' show HomePageWidget;
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,9 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   final unfocusNode = FocusNode();
   // State field(s) for MouseRegion widget.
   bool mouseRegionHovered = false;
+  // State field(s) for DropDown widget.
+  String? dropDownValue;
+  FormFieldController<String>? dropDownValueController;
 
   /// Initialization and disposal methods.
 

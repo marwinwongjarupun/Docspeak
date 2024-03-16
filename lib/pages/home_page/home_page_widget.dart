@@ -1,8 +1,9 @@
 import '/flutter_flow/flutter_flow_animations.dart';
-import '/flutter_flow/flutter_flow_language_selector.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -183,7 +184,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                   'k3ayzbz4' /* Download TXT file */,
                                 ),
                                 options: FFButtonOptions(
-                                  height: 40.0,
+                                  height: 35.0,
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       20.0, 0.0, 20.0, 0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
@@ -513,7 +514,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                         ),
                         Container(
                           width: 100.0,
-                          height: 100.0,
+                          height: 110.0,
                           decoration: const BoxDecoration(),
                         ),
                       ],
@@ -525,22 +526,51 @@ class _HomePageWidgetState extends State<HomePageWidget>
                   child: Padding(
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
-                    child: FlutterFlowLanguageSelector(
-                      width: 200.0,
-                      backgroundColor:
+                    child: FlutterFlowDropDown<String>(
+                      controller: _model.dropDownValueController ??=
+                          FormFieldController<String>(null),
+                      options: [
+                        FFLocalizations.of(context).getText(
+                          'ae5t32es' /* Spanish */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'vwytv2ji' /* Mandarin */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'jimjfoh8' /* French */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'qwkvw44r' /* Arabic */,
+                        ),
+                        FFLocalizations.of(context).getText(
+                          'fwt3bcth' /* Thai */,
+                        )
+                      ],
+                      onChanged: (val) =>
+                          setState(() => _model.dropDownValue = val),
+                      width: 256.0,
+                      height: 56.0,
+                      textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                      hintText: FFLocalizations.of(context).getText(
+                        'z8tpfzge' /* Select Language */,
+                      ),
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                      fillColor:
                           FlutterFlowTheme.of(context).secondaryBackground,
-                      borderColor: Colors.transparent,
-                      dropdownColor:
-                          FlutterFlowTheme.of(context).secondaryBackground,
-                      dropdownIconColor: Colors.white,
+                      elevation: 2.0,
+                      borderColor: FlutterFlowTheme.of(context).alternate,
+                      borderWidth: 2.0,
                       borderRadius: 8.0,
-                      textStyle: FlutterFlowTheme.of(context).labelSmall,
-                      hideFlags: true,
-                      flagSize: 24.0,
-                      flagTextGap: 8.0,
-                      currentLanguage: FFLocalizations.of(context).languageCode,
-                      languages: FFLocalizations.languages(),
-                      onChanged: (lang) => setAppLanguage(context, lang),
+                      margin:
+                          const EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                      hidesUnderline: true,
+                      isOverButton: true,
+                      isSearchable: false,
+                      isMultiSelect: false,
                     ),
                   ),
                 ),
