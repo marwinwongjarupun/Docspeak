@@ -69,88 +69,125 @@ class _HomePageWidgetState extends State<HomePageWidget>
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Stack(
-            children: [
-              Container(
-                width: double.infinity,
-                height: double.infinity,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).primaryBackground,
-                ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, 1.0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
-                  child: FlutterFlowLanguageSelector(
-                    width: 200.0,
-                    backgroundColor: FlutterFlowTheme.of(context).secondaryText,
-                    borderColor: Colors.transparent,
-                    dropdownIconColor: Colors.white,
-                    borderRadius: 8.0,
-                    textStyle: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 13.0,
-                    ),
-                    hideFlags: true,
-                    flagSize: 24.0,
-                    flagTextGap: 8.0,
-                    currentLanguage: FFLocalizations.of(context).languageCode,
-                    languages: FFLocalizations.languages(),
-                    onChanged: (lang) => setAppLanguage(context, lang),
+          child: SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: Stack(
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
                   ),
                 ),
-              ),
-              Align(
-                alignment: const AlignmentDirectional(0.0, -1.0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
-                  child: MouseRegion(
-                    opaque: false,
-                    cursor: MouseCursor.defer ?? MouseCursor.defer,
-                    onEnter: ((event) async {
-                      setState(() => _model.mouseRegionHovered = true);
-                      if (animationsMap['imageOnActionTriggerAnimation'] !=
-                          null) {
-                        await animationsMap['imageOnActionTriggerAnimation']!
-                            .controller
-                            .forward(from: 0.0);
-                      }
-                    }),
-                    onExit: ((event) async {
-                      setState(() => _model.mouseRegionHovered = false);
-                      if (animationsMap['imageOnActionTriggerAnimation'] !=
-                          null) {
-                        await animationsMap['imageOnActionTriggerAnimation']!
-                            .controller
-                            .reverse();
-                      }
-                    }),
-                    child: InkWell(
-                      splashColor: Colors.transparent,
-                      focusColor: Colors.transparent,
-                      hoverColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () async {
-                        await launchURL('https://docspeak.org');
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          'assets/images/Docspeak-logo.png',
-                          width: 127.0,
-                          height: 55.0,
-                          fit: BoxFit.cover,
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 50.0),
+                    child: FlutterFlowLanguageSelector(
+                      width: 200.0,
+                      backgroundColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      borderColor: Colors.transparent,
+                      dropdownColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                      dropdownIconColor: Colors.white,
+                      borderRadius: 8.0,
+                      textStyle: FlutterFlowTheme.of(context).bodySmall,
+                      hideFlags: true,
+                      flagSize: 24.0,
+                      flagTextGap: 8.0,
+                      currentLanguage: FFLocalizations.of(context).languageCode,
+                      languages: FFLocalizations.languages(),
+                      onChanged: (lang) => setAppLanguage(context, lang),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, -1.0),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
+                    child: MouseRegion(
+                      opaque: false,
+                      cursor: MouseCursor.defer ?? MouseCursor.defer,
+                      onEnter: ((event) async {
+                        setState(() => _model.mouseRegionHovered = true);
+                        if (animationsMap['imageOnActionTriggerAnimation'] !=
+                            null) {
+                          await animationsMap['imageOnActionTriggerAnimation']!
+                              .controller
+                              .forward(from: 0.0);
+                        }
+                      }),
+                      onExit: ((event) async {
+                        setState(() => _model.mouseRegionHovered = false);
+                        if (animationsMap['imageOnActionTriggerAnimation'] !=
+                            null) {
+                          await animationsMap['imageOnActionTriggerAnimation']!
+                              .controller
+                              .reverse();
+                        }
+                      }),
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          await launchURL('https://docspeak.org');
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            'assets/images/Docspeak-logo.png',
+                            width: 127.0,
+                            height: 55.0,
+                            fit: BoxFit.cover,
+                          ),
                         ),
+                      ).animateOnActionTrigger(
+                        animationsMap['imageOnActionTriggerAnimation']!,
                       ),
-                    ).animateOnActionTrigger(
-                      animationsMap['imageOnActionTriggerAnimation']!,
                     ),
                   ),
                 ),
-              ),
-            ],
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 40.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Align(
+                      alignment: const AlignmentDirectional(0.0, 0.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            FFLocalizations.of(context).getText(
+                              'h17t0253' /* docspeak 2024. All Rights Rese... */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  fontSize: 12.0,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -110,6 +110,13 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
+    'h17t0253': {
+      'en': 'docspeak 2024. All Rights Reserved.',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
     '0aukya3b': {
       'en': 'Home',
       'ar': '',
