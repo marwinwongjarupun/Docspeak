@@ -1,7 +1,3 @@
 # Docspeak
 
-A new Flutter project.
-
-## Getting Started
-
-FlutterFlow projects are built to run on the Flutter _stable_ release.
+DocSpeak is a medical translation platform that provides interpretation services to migrants with LEP in GP consultations
