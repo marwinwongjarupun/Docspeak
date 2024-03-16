@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_util.dart';
+import 'flutter_flow/internationalization.dart';
 import 'flutter_flow/nav/nav.dart';
 
 void main() async {
@@ -26,6 +27,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Locale? _locale;
   ThemeMode _themeMode = ThemeMode.system;
 
   late AppStateNotifier _appStateNotifier;
@@ -39,6 +41,10 @@ class _MyAppState extends State<MyApp> {
     _router = createRouter(_appStateNotifier);
   }
 
+  void setLocale(String language) {
+    setState(() => _locale = createLocale(language));
+  }
+
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
       });
@@ -48,11 +54,19 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp.router(
       title: 'Docspeak',
       localizationsDelegates: const [
+        FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: const [Locale('en', '')],
+      locale: _locale,
+      supportedLocales: const [
+        Locale('en'),
+        Locale('es'),
+        Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
+        Locale('ar'),
+        Locale('th'),
+      ],
       theme: ThemeData(
         brightness: Brightness.light,
         useMaterial3: false,
