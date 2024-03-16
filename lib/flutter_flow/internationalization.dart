@@ -110,15 +110,8 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
-    '8b4t9t9n': {
-      'en': 'gpt.flow',
-      'ar': '',
-      'es': '',
-      'th': '',
-      'zh_Hans': '',
-    },
     'k3ayzbz4': {
-      'en': 'Clone Project in FlutterFlow',
+      'en': 'Download txt file',
       'ar': '',
       'es': '',
       'th': '',
