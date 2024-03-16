@@ -110,6 +110,48 @@ Locale createLocale(String language) => language.contains('_')
 final kTranslationsMap = <Map<String, Map<String, String>>>[
   // HomePage
   {
+    '8b4t9t9n': {
+      'en': 'gpt.flow',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'k3ayzbz4': {
+      'en': 'Clone Project in FlutterFlow',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'pqumyi2e': {
+      'en': 'Hello World',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    '7iwssp4h': {
+      'en': 'Copy response',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'pt4zp0fj': {
+      'en': 'Hello World',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    '9z06vs8a': {
+      'en': 'Type something...',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
     'h17t0253': {
       'en': 'docspeak 2024. All Rights Reserved.',
       'ar': '',
