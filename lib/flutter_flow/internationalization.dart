@@ -138,6 +138,20 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': '',
       'zh_Hans': '',
     },
+    '7w9r7pls': {
+      'en': 'Doctor',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
+    'm41ranbt': {
+      'en': 'Patient',
+      'ar': '',
+      'es': '',
+      'th': '',
+      'zh_Hans': '',
+    },
     '48w6z87k': {
       'en': '',
       'ar': '',

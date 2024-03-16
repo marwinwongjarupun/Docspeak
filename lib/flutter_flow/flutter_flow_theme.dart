@@ -36,6 +36,7 @@ abstract class FlutterFlowTheme {
   late Color buttonColorHover;
   late Color patientButtonColor;
   late Color doctorButtonColor;
+  late Color boxColor;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -129,6 +130,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color buttonColorHover = const Color(0xFF31A597);
   late Color patientButtonColor = const Color(0xFF028CB0);
   late Color doctorButtonColor = const Color(0xFF57D4D0);
+  late Color boxColor = const Color(0xFF032E4E);
 }
 
 abstract class Typography {

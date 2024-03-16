@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -35,6 +36,32 @@ class _HomePageWidgetState extends State<HomePageWidget>
           duration: 300.ms,
           begin: const Offset(1.0, 1.0),
           end: const Offset(1.1, 1.1),
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+      ],
+    ),
+    'columnOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        VisibilityEffect(duration: 1.ms),
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
         ),
       ],
     ),
@@ -316,7 +343,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                       decoration:
                                                                           BoxDecoration(
                                                                         color: FlutterFlowTheme.of(context)
-                                                                            .primary,
+                                                                            .boxColor,
                                                                         boxShadow: const [
                                                                           BoxShadow(
                                                                             blurRadius:
@@ -332,7 +359,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                         border:
                                                                             Border.all(
                                                                           color:
-                                                                              FlutterFlowTheme.of(context).primary,
+                                                                              FlutterFlowTheme.of(context).alternate,
                                                                           width:
                                                                               1.0,
                                                                         ),
@@ -355,7 +382,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                                               ),
                                                                               style: FlutterFlowTheme.of(context).titleMedium.override(
                                                                                     fontFamily: 'Readex Pro',
-                                                                                    color: FlutterFlowTheme.of(context).primaryText,
+                                                                                    color: FlutterFlowTheme.of(context).primaryBackground,
                                                                                     fontSize: 14.0,
                                                                                     lineHeight: 1.5,
                                                                                   ),
@@ -509,6 +536,124 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                 )
                               ],
                               borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                if (_model.isDoctorRecording)
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 100.0,
+                                          buttonSize: 50.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .doctorButtonColor,
+                                          icon: Icon(
+                                            Icons.mic_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                            size: 25.0,
+                                          ),
+                                          showLoadingIndicator: true,
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
+                                          },
+                                        ),
+                                        if (_model.isDoctorRecording)
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 100.0,
+                                            buttonSize: 50.0,
+                                            fillColor: const Color(0xFF131313),
+                                            icon: Icon(
+                                              Icons.stop_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                              size: 25.0,
+                                            ),
+                                            showLoadingIndicator: true,
+                                            onPressed: () {
+                                              print('IconButton pressed ...');
+                                            },
+                                          ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '7w9r7pls' /* Doctor */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ],
+                                    ).animateOnPageLoad(animationsMap[
+                                        'columnOnPageLoadAnimation1']!),
+                                  ),
+                                if (_model.isDoctorRecording)
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 100.0,
+                                          buttonSize: 50.0,
+                                          fillColor:
+                                              FlutterFlowTheme.of(context)
+                                                  .patientButtonColor,
+                                          icon: Icon(
+                                            Icons.mic_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .info,
+                                            size: 25.0,
+                                          ),
+                                          showLoadingIndicator: true,
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
+                                          },
+                                        ),
+                                        if (_model.isPatientRecording)
+                                          FlutterFlowIconButton(
+                                            borderColor: Colors.transparent,
+                                            borderRadius: 100.0,
+                                            buttonSize: 50.0,
+                                            fillColor: const Color(0xFF131313),
+                                            icon: Icon(
+                                              Icons.stop_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .info,
+                                              size: 25.0,
+                                            ),
+                                            showLoadingIndicator: true,
+                                            onPressed: () {
+                                              print('IconButton pressed ...');
+                                            },
+                                          ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'm41ranbt' /* Patient */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ],
+                                    ).animateOnPageLoad(animationsMap[
+                                        'columnOnPageLoadAnimation2']!),
+                                  ),
+                              ],
                             ),
                           ),
                         ),
