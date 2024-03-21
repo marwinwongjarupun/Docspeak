@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 100" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue circle -->
+  <circle cx="50" cy="50" r="45" fill="none" stroke="#3498db" stroke-width="3">
+    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Red circle -->
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#e74c3c" stroke-width="3">
+    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <!-- Yellow circle -->
+  <circle cx="50" cy="50" r="25" fill="none" stroke="#f9c922" stroke-width="3">
+    <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>
