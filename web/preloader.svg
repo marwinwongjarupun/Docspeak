@@ -2,10 +2,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve">
     <g>
         <!-- Starting with the original colors -->
-        <circle cx="16" cy="64" r="16" fill="#31a597"/>
+        <circle cx="16" cy="64" r="16" fill="#032e4e"/> 
         <circle cx="16" cy="64" r="16" fill="#028CB0" transform="rotate(45,64,64)"/>
         <circle cx="16" cy="64" r="16" fill="#57d4d0" transform="rotate(90,64,64)"/>
-        <circle cx="16" cy="64" r="16" fill="#032e4e" transform="rotate(135,64,64)"/>
+        <circle cx="16" cy="64" r="16" fill="#31a597" transform="rotate(135,64,64)"/>
         
         <!-- Gradually transitioning to lighter colors -->
         <circle cx="16" cy="64" r="16" fill="#57d4d0" transform="rotate(180,64,64)"/>
