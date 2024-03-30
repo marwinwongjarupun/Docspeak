@@ -1,3 +1,5 @@
+const { Deepgram } = require('@deepgram/sdk');
+
 async function getMicrophone() {
     const userMedia = await navigator.mediaDevices.getUserMedia({
         audio: true,
