@@ -27,7 +27,7 @@ async function openMicrophone(microphone, socket) {
 async function closeMicrophone(microphone) {
     microphone.stop();
 }
-
+/*
 async function start(socket) {
 
     let microphone;
@@ -41,6 +41,29 @@ async function start(socket) {
     } else {
         await closeMicrophone(microphone);
         microphone = undefined;
+    }
+}
+*/
+let microphone;
+
+async function openMicrophoneStream(socket) {
+    console.log("client: attempting to open microphone");
+
+    if (!microphone) {
+        microphone = await getMicrophone();
+        await openMicrophone(microphone, socket);
+        console.log("client: microphone opened and streaming started");
+    } else {
+        console.log("client: microphone is already open");
+    }
+}
+async function closeMicrophoneStream() {
+    if (microphone) {
+        await closeMicrophone(microphone);
+        microphone = undefined;
+        console.log("client: microphone closed");
+    } else {
+        console.log("client: microphone is not open");
     }
 }
 
@@ -87,7 +110,7 @@ async function initializeAudioTranscription(model, language) {
             socket.on("close", (e) => console.log(e));
 
             // Start the audio streaming
-            await start(socket);
+            // await start(socket);
         });
     } catch (error) {
         console.error("Failed to initialize audio transcription:", error);
