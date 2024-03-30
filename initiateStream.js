@@ -11,12 +11,10 @@ async function openMicrophone(microphone, socket) {
 
     microphone.onstart = () => {
         console.log("client: microphone opened");
-        document.body.classList.add("recording");
     };
 
     microphone.onstop = () => {
         console.log("client: microphone closed");
-        document.body.classList.remove("recording");
     };
 
     microphone.ondataavailable = (e) => {
@@ -31,22 +29,21 @@ async function closeMicrophone(microphone) {
 }
 
 async function start(socket) {
-    const listenButton = document.getElementById("record");
+
     let microphone;
 
     console.log("client: waiting to open microphone");
 
-    listenButton.addEventListener("click", async () => {
-        if (!microphone) {
-            // open and close the microphone
-            microphone = await getMicrophone();
-            await openMicrophone(microphone, socket);
-        } else {
-            await closeMicrophone(microphone);
-            microphone = undefined;
-        }
-    });
+    if (!microphone) {
+        // open and close the microphone
+        microphone = await getMicrophone();
+        await openMicrophone(microphone, socket);
+    } else {
+        await closeMicrophone(microphone);
+        microphone = undefined;
+    }
 }
+
 async function getTempApiKey() {
     try {
         const response = await fetch('https://europe-west2-docspeakapp.cloudfunctions.net/generateTempApiKey');
@@ -58,36 +55,38 @@ async function getTempApiKey() {
     }
 }
 
-async function initializeAudioTranscription() {
+async function initializeAudioTranscription(model, language) {
     try {
         const key = await getTempApiKey();
         const { createClient } = deepgram;
         const _deepgram = createClient(key);
 
-        const socket = _deepgram.listen.live({ model: "nova-2", smart_format: true });
+        const socket = _deepgram.listen.live({ model: model, language: language, smart_format: true });
 
         socket.on("open", async () => {
             console.log("client: connected to websocket");
 
+            // Handle transcription results
             socket.on("Results", (data) => {
                 console.log(data);
 
                 const transcript = data.channel.alternatives[0].transcript;
 
                 if (transcript !== "") {
-                    document.getElementById("captions").innerHTML = transcript ? `<span>${transcript}</span>` : "";
+                                        
+                    // Dispatch a custom event with the transcription result
+                    const transcriptionEvent = new CustomEvent('transcriptionReceived', { detail: transcript });
+                    document.dispatchEvent(transcriptionEvent);
                 }
             });
 
+            // Handle other socket events as before
             socket.on("error", (e) => console.error(e));
-
             socket.on("warning", (e) => console.warn(e));
-
             socket.on("Metadata", (e) => console.log(e));
-
             socket.on("close", (e) => console.log(e));
 
-            // Assuming start is defined elsewhere to handle microphone streaming
+            // Start the audio streaming
             await start(socket);
         });
     } catch (error) {
@@ -95,4 +94,7 @@ async function initializeAudioTranscription() {
     }
 }
 
-window.addEventListener("load", initializeAudioTranscription);
+window.addEventListener("load", async () => {
+    await initializeAudioTranscription("nova-2-medical", "en");
+});
+
